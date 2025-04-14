@@ -1,0 +1,20 @@
+<div class="bg-gray-900 text-white p-4 d-flex justify-between items-center">
+    <div class="text-xl font-bold">Angular 18 with Firebase Auth</div>
+    <button class="btn btn-primary">Click Me</button>
+
+    <div class="d-flex items-center">
+        @if (this.user()?.photoURL; as imgUrl ){
+            <img [src]="imgUrl ?? null" alt="User Icon" class="w-8 h-8 rounded-full" (click)="this.isMenuOpen = !this.isMenuOpen">
+        }
+    </div>
+    @if (isMenuOpen) {
+    <div class="origin-top-right absolute right-0 top-[46px] mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Welcome {{this.user()?.displayName}}</a>
+            <a (click)="logOut()" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</a>
+        </div>
+    </div>
+    }
+</div>
+
+<router-outlet></router-outlet>
